@@ -29,14 +29,17 @@ RUN git clone --recursive https://github.com/OSVR/libfunctionality.git && \
     git clone --recursive https://github.com/VRPN/jsoncpp && \
     git clone --recursive https://github.com/OSVR/OSVR-Core.git
 
-RUN cd libfunctionality/src && \
-    cmake .. && make install && \
+RUN mkdir -p libfunctionality/build && \
+    cd libfunctionality/build  && \
+    cmake .. && make && make install && \
     cd ../.. && \
-    cd jsoncpp/src && \
-    cmake .. -DJSONCPP_WITH_CMAKE_PACKAGE=ON -DJSONCPP_LIB_BUILD_SHARED=OFF -DCMAKE_CXX_FLAGS=-fPIC && make install && \
+    mkdir -p jsoncpp/build && \
+    cd jsoncpp/build && \
+    cmake .. -DJSONCPP_WITH_CMAKE_PACKAGE=ON -DJSONCPP_LIB_BUILD_SHARED=OFF -DCMAKE_CXX_FLAGS=-fPIC && make && make install && \
     cd ../.. && \
-    cd OSVR-Core/src && \
-    cmake .. && make install
+    mkdir -p OSVR-Core/build && \
+    cd OSVR-Core/build && \
+    cmake .. && make && make install
 
 WORKDIR /opt/osvr
 
