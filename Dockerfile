@@ -7,10 +7,10 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
     software-properties-common \
     libopencv-dev \
-    libboost1.54-dev \
-    libboost-thread1.54-dev \
-    libboost-program-options1.54-dev \
-    libboost-filesystem1.54-dev \
+    libboost1.55-dev \
+    libboost-thread1.55-dev \
+    libboost-program-options1.55-dev \
+    libboost-filesystem1.55-dev \
     libusb-1.0-0-dev
 
 # Cmake
